@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emergency Service Directory</title>
+
+  <!-- Tailwind & Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/0fd0e0d102.js" crossorigin="anonymous"></script>
+
+  <!-- Font --->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap');
+    .hind-madurai-light { font-family: "Hind Madurai", sans-serif; font-weight: 300; }
+    .hind-madurai-regular { font-family: "Hind Madurai", sans-serif; font-weight: 400; }
+    .hind-madurai-medium { font-family: "Hind Madurai", sans-serif; font-weight: 500; }
+    .hind-madurai-semibold { font-family: "Hind Madurai", sans-serif; font-weight: 600; }
+    .hind-madurai-bold { font-family: "Hind Madurai", sans-serif; font-weight: 700; }
+  </style>
+
+  
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-gray-50 hind-madurai-regular">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-lg px-3 sm:px-5 md:px-6 lg:px-8 py-2 sm:py-3 hind-madurai-regular">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+
+      <!--  Logo + Name -->
+      <div class="flex justify-center items-center space-x-2 sm:space-x-3">
+        <div class="rounded-full p-1 sm:p-2">
+          <img src="assets/logo.png" alt="Logo" class="h-6 sm:h-8 md:h-12 lg:h-14">
+        </div>
+        <h1 class="text-sm md:text-lg lg:text-2xl font-extrabold text-[#006747] text-left" style="line-height: 1;">
+          Emergency<br>Service
+        </h1>
+      </div>
+
+      <!--  Heart, Coin, Copy -->
+      <div class="flex items-center space-x-1 sm:space-x-2 lg:space-x-3">
+        <div class="bg-[#41FF6B]/10 px-2 sm:px-3 md:px-4 lg:px-6 py-1 sm:py-2 rounded-full flex items-center space-x-1 sm:space-x-2">
+          <span id="heartCount" class="text-xs sm:text-sm lg:text-lg hind-madurai-semibold text-gray-800">0</span>
+          <img src="assets/heart.png" alt="Heart Icon" class="h-3 sm:h-4 md:h-5 lg:h-6">
+        </div>
+        <div class="bg-[#41FF6B]/10 px-2 sm:px-3 md:px-4 lg:px-6 py-1 sm:py-2 rounded-full flex items-center space-x-1 sm:space-x-2">
+          <span id="coinCount" class="text-xs sm:text-sm lg:text-lg hind-madurai-semibold text-gray-800">100</span>
+          <img src="assets/coin.png" alt="Coin Icon" class="h-3 sm:h-4 md:h-5 lg:h-6">
+        </div>
+        <div class="bg-green-600 text-white px-2 sm:px-3 md:px-4 lg:px-6 py-1 sm:py-2 md:py-3 rounded-full flex items-center space-x-1 sm:space-x-2">
+          <span id="copyCount" class="text-xs sm:text-sm hind-madurai-semibold">0</span>
+          <span class="text-xs sm:text-sm hind-madurai-semibold">Copy</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="py-5 sm:py-7 md:py-8 lg:py-10 text-white text-center" style="background: linear-gradient(45deg, #013223, #006747, #013223);">
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+      <div class="mb-1 sm:mb-3 lg:mb-4">
+        <div class="inline-block">
+          <img src="assets/logo-dark.png" alt="Bangladesh Flag" class="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20">
+        </div>
+      </div>
+      <h1 class="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl hind-madurai-bold mb-2 sm:mb-4 lg:mb-5">
+        Emergency Service Directory
+      </h1>
+      <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-green-100 px-2 leading-relaxed mb-2 sm:mb-4 lg:mb-5 hind-madurai-semibold">
+        Government Emergency Services at Your Fingertip - A Project by Government of the People's Republic of Bangladesh
+      </p>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <section class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 md:py-7 lg:py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+
+      <!-- Cards -->
+      <div class="lg:col-span-9">
+        <div class="h-full">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 lg:gap-6" id="cardsContainer"></div>
+        </div>
+      </div>
+
+      <!-- History -->
+      <div class="lg:col-span-3 mt-4 lg:mt-0">
+        <div class="bg-white rounded-lg shadow-lg p-3 sm:p-5 lg:p-6 h-full">
+          <div class="flex justify-between items-center mb-3 sm:mb-5 lg:mb-6">
+            <div class="flex items-center space-x-1 sm:space-x-2">
+              <i class="fa-regular fa-clock text-xs sm:text-sm lg:text-base"></i>
+              <h3 class="text-sm sm:text-base lg:text-lg hind-madurai-semibold text-gray-800">Call History</h3>
+            </div>
+            <button id="clearHistoryBtn" class="bg-green-600 text-white px-2 py-1 sm:px-4 sm:py-3 lg:px-7 rounded-full text-xs sm:text-sm hind-madurai-medium">
+              Clear
+            </button>
+          </div>
+          <div id="historyList" class="space-y-2"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
