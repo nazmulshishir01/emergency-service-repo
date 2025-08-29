@@ -10,6 +10,7 @@ querySelectorAll → Finds all elements that match a CSS selector. it won't chan
 
 
 Q2: How do you create and insert a new element into the DOM?
+
 To create and insert a new element into the DOM, you need:
 
 Create the element using document.createElement().
